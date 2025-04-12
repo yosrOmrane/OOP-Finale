@@ -1,4 +1,4 @@
-
+![C++](https://img.shields.io/badge/language-C%2B%2B-blue.svg)
 # 🔐 Secure Authentication System in C++
 
 A secure and extensible authentication system built in C++ using Object-Oriented Programming principles. It implements password hashing with unique salt per user using SHA-256 and ensures persistent user data storage via CSV files.
@@ -14,21 +14,21 @@ A secure and extensible authentication system built in C++ using Object-Oriented
 - ✅ Clean OOP structure with interfaces and implementations
 
 ---
+## 📁 Project Structure
 
-## 🧩 Class Structure
-
-- **IHasher** – Interface for hashing and salt generation  
-  - `SHA256Hasher` – SHA-256 implementation with OpenSSL or similar
-
-- **IValidator** – Interface for input validation  
-  - `UserValidator` – Validates username and password formats
-
-- **User** – Data class representing a user (username, hashed password, salt)
-
-- **IUserRepository** – Interface for data storage  
-  - `FileUserRepository` – CSV file implementation
-
-- **AuthService** – Core logic for registration and authentication
+```
+OOP_Finale/
+├── IHasher.h
+├── SHA256Hasher.h / .cpp
+├── IValidator.h
+├── UserValidator.h / .cpp
+├── User.h / .cpp
+├── IUserRepository.h
+├── FileUserRepository.h / .cpp
+├── AuthService.h / .cpp
+├── main.cpp
+└── README.md
+```
 
 ---
 
@@ -111,24 +111,6 @@ username,hashedPassword,salt
 - **L** – Liskov Substitution (implementations can replace interfaces)  
 - **I** – Interface Segregation (small, focused interfaces)  
 - **D** – Dependency Inversion (high-level modules don’t depend on low-level ones)
-
----
-
-## 📁 Project Structure
-
-```
-OOP_project/
-├── IHasher.h
-├── SHA256Hasher.h / .cpp
-├── IValidator.h
-├── UserValidator.h / .cpp
-├── User.h / .cpp
-├── IUserRepository.h
-├── FileUserRepository.h / .cpp
-├── AuthService.h / .cpp
-├── main.cpp
-└── README.md
-```
 
 ---
 
