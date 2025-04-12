@@ -1,144 +1,153 @@
-Here's the complete Markdown code for your README.md file:
 
-```markdown
-# OOP_project
+# 🔐 Secure Authentication System in C++
 
-A secure authentication system in C++ that hashes passwords with a salt using SHA-256. It supports user registration, login, and password verification. User data (username, hashed password, and salt) is stored in a CSV file for persistence.
+A secure and extensible authentication system built in C++ using Object-Oriented Programming principles. It implements password hashing with unique salt per user using SHA-256 and ensures persistent user data storage via CSV files.
 
-## Features
+---
 
-- Secure password hashing with salt using SHA-256
-- User registration with validation
-- User authentication
-- Persistent storage using CSV files
-- Object-oriented design with interfaces and implementations
+## ✨ Features
 
-## Class Structure
+- ✅ Secure password hashing (SHA-256) with unique salt  
+- ✅ User registration with validation rules  
+- ✅ User login and password verification  
+- ✅ Persistent CSV-based data storage  
+- ✅ Clean OOP structure with interfaces and implementations
 
-- **IHasher**: Interface for password hashing and salt generation
-  - **SHA256Hasher**: Implementation using SHA-256 algorithm
+---
 
-- **IValidator**: Interface for input validation
-  - **UserValidator**: Implementation with username and password validation rules
+## 🧩 Class Structure
 
-- **User**: Data class for user information
+- **IHasher** – Interface for hashing and salt generation  
+  - `SHA256Hasher` – SHA-256 implementation with OpenSSL or similar
 
-- **IUserRepository**: Interface for user data storage
-  - **FileUserRepository**: Implementation using CSV file storage
+- **IValidator** – Interface for input validation  
+  - `UserValidator` – Validates username and password formats
 
-- **AuthService**: Main service that coordinates authentication operations
+- **User** – Data class representing a user (username, hashed password, salt)
 
-## Validation Rules
+- **IUserRepository** – Interface for data storage  
+  - `FileUserRepository` – CSV file implementation
 
-- Username: At least 3 characters, alphanumeric only
-- Password: At least 8 characters, must contain uppercase, lowercase, and digits
+- **AuthService** – Core logic for registration and authentication
 
-## Building and Running
+---
 
-### Using g++ (MinGW)
+## ✅ Validation Rules
 
-Compile all .cpp files together:
+- **Username**:
+  - Minimum 3 characters  
+  - Alphanumeric only  
+
+- **Password**:
+  - Minimum 8 characters  
+  - At least one uppercase letter  
+  - At least one lowercase letter  
+  - At least one digit  
+
+---
+
+## 🔧 Building and Running
+
+### 🔹 Using g++ (MinGW or Linux)
 
 ```bash
 g++ -std=c++17 main.cpp SHA256Hasher.cpp UserValidator.cpp User.cpp FileUserRepository.cpp AuthService.cpp -o auth_system.exe
+./auth_system.exe
 ```
 
-Run the executable:
+### 🔹 Using Visual Studio
 
-```shellscript
-.\auth_system.exe
+1. Create a C++ Console Application project  
+2. Add all `.h` and `.cpp` files  
+3. Build and run (F5)
+
+---
+
+## 💻 Usage
+
+The app provides a simple CLI interface:
+
+```
+1. Register
+2. Login
+3. Exit
 ```
 
-### Using Visual Studio
+---
 
-1. Create a new C++ Console Application project
-2. Add all .h and .cpp files to the project
-3. Build and run the project (F5)
+## 🔐 Security Features
 
+- **Password Hashing**: Uses SHA-256 with salt  
+- **Salt Generation**: Unique salt per user to prevent rainbow table attacks  
+- **Strict Validation**: Enforces strong credentials  
+- **No Plaintext Storage**: Only hashed values stored  
 
-## Usage
+---
 
-The application provides a simple command-line interface with the following options:
+## 🗂️ File Format
 
-1. **Register**: Create a new user account
-2. **Login**: Authenticate with existing credentials
-3. **Exit**: Close the application
+User data is stored in `users.csv` in the format:
 
-
-## Security Implementation
-
-- **Password Hashing**: Passwords are never stored in plain text
-- **Salt Generation**: Each user has a unique salt to prevent rainbow table attacks
-- **Input Validation**: Strict rules for usernames and passwords
-
-
-## File Format
-
-User data is stored in a CSV file with the following format:
-
-```plaintext
+```
 username,hashedPassword,salt
 ```
 
-## OOP Concepts Demonstrated
+---
 
-- **Abstraction**: Interfaces define behavior without implementation details
-- **Encapsulation**: Data and methods are encapsulated within classes
-- **Inheritance**: Implementation classes inherit from interfaces
-- **Polymorphism**: Different implementations can be used interchangeably
-- **Dependency Injection**: Components receive their dependencies through constructors
+## 🧠 OOP Concepts
 
+- **Abstraction** – Defined behavior using interfaces  
+- **Encapsulation** – Secure and isolated data  
+- **Inheritance** – Concrete classes from abstract interfaces  
+- **Polymorphism** – Interchangeable components  
+- **Dependency Injection** – Services injected via constructors  
 
-## SOLID Principles Applied
+---
 
-1. **Single Responsibility Principle**: Each class has a single responsibility
-2. **Open/Closed Principle**: Classes are open for extension but closed for modification
-3. **Liskov Substitution Principle**: Implementations can be substituted for their interfaces
-4. **Interface Segregation Principle**: Specific interfaces rather than general ones
-5. **Dependency Inversion Principle**: Depend on abstractions, not concrete implementations
+## 🧱 SOLID Principles
 
+- **S** – Single Responsibility (each class = one task)  
+- **O** – Open/Closed (extendible without modifying base code)  
+- **L** – Liskov Substitution (implementations can replace interfaces)  
+- **I** – Interface Segregation (small, focused interfaces)  
+- **D** – Dependency Inversion (high-level modules don’t depend on low-level ones)
 
-## Project Structure
+---
 
-```plaintext
+## 📁 Project Structure
+
+```
 OOP_project/
 ├── IHasher.h
-├── SHA256Hasher.h
-├── SHA256Hasher.cpp
+├── SHA256Hasher.h / .cpp
 ├── IValidator.h
-├── UserValidator.h
-├── UserValidator.cpp
-├── User.h
-├── User.cpp
+├── UserValidator.h / .cpp
+├── User.h / .cpp
 ├── IUserRepository.h
-├── FileUserRepository.h
-├── FileUserRepository.cpp
-├── AuthService.h
-├── AuthService.cpp
+├── FileUserRepository.h / .cpp
+├── AuthService.h / .cpp
 ├── main.cpp
 └── README.md
 ```
 
-## Authentication Flow
+---
 
-1. **User Registration**:
+## 🔄 Authentication Flow
 
-1. Validate input (username and password)
-2. Check if username already exists
-3. Generate salt and hash password
-4. Save user data to CSV file
+### 📝 Registration
+1. Validate input  
+2. Check if username already exists  
+3. Generate salt and hash password  
+4. Store in CSV
 
+### 🔐 Login
+1. Find user by username  
+2. Hash entered password with stored salt  
+3. Compare with stored hash  
+4. Authenticate if match
 
+---
 
-2. **User Login**:
+## 🙌 Acknowledgments
 
-1. Find user by username
-2. Hash provided password with stored salt
-3. Compare with stored hash
-4. Grant access if hashes match
-
-
-
-## Acknowledgments
-
-- This project was created as part of an Object-Oriented Programming course
+This project was developed as part of an Object-Oriented Programming course to practice security and design patterns in C++.
