@@ -48,7 +48,7 @@ OOP_Finale/
 
 ## 🔧 Building and Running
 
-### 🔹 Using g++ (MinGW or Linux)
+### 🔹 Using g++ (MinGW)
 
 ```bash
 g++ -std=c++17 main.cpp SHA256Hasher.cpp UserValidator.cpp User.cpp FileUserRepository.cpp AuthService.cpp -o auth_system.exe
